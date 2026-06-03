@@ -1,119 +1,514 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Nomade. Social Run Club.</title>
-    <meta property="og:title" content="Nomade. Social Run Club." />
-    <meta property="og:description" content="Comunidad de runners. Carreras, salidas y gente que se mueve." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://socialclub.nomade.vercel.app/og.png" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏃‍♂️</text></svg>" />
-    <style>
-        :root { --bg: #0b0c10; --text: #e8e6e3; --accent: #ff4d2e; --muted: #8a8a8a; --card: #131418; --border: #222328; }
-        * { box-sizing: border-box; }
-        html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
-        .wrap { max-width: 560px; margin: 0 auto; padding: 24px 18px 80px; }
-        .hero { display: grid; gap: 14px; padding: 40px 0 10px; }
-        .kicker { color: var(--accent); text-transform: uppercase; letter-spacing: 0.18em; font-size: 11px; font-weight: 600; }
-        h1 { font-size: clamp(38px, 8vw, 52px); line-height: 1.05; margin: 0; font-weight: 800; letter-spacing: -0.03em; }
-        .sub { color: var(--muted); font-size: 16px; line-height: 1.5; margin-top: 4px; }
-        .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; margin-top: 14px; }
-        .section { margin-top: 28px; }
-        .section-title { font-size: 13px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted); margin-bottom: 10px; }
-        .benefit { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
-        .benefit:last-child { border-bottom: none; }
-        .benefit-icon { width: 36px; height: 36px; border-radius: 10px; background: #1c1d24; display: grid; place-items: center; font-size: 18px; }
-        .event-meta { color: var(--muted); font-size: 13px; margin-top: 6px; }
-        .progress { height: 8px; background: #1c1d24; border-radius: 999px; overflow: hidden; margin-top: 14px; }
-        .progress > span { display: block; height: 100%; background: var(--accent); border-radius: 999px; width: 62%; animation: pulse 2s infinite; }
-        @keyframes pulse { 0%,100%{ opacity:1 } 50%{ opacity:.7 } }
-        .cta { display: inline-flex; align-items: center; gap: 8px; width: 100%; justify-content: center; padding: 14px 16px; border-radius: 14px; background: var(--accent); color: white; text-decoration: none; font-weight: 600; margin-top: 12px; }
-        .cta.secondary { background: #1c1d24; color: var(--text); border: 1px solid var(--border); }
-        .whatsapp-mock { display: grid; gap: 8px; margin-top: 10px; }
-        .wa-row { height: 42px; border-radius: 14px; background: linear-gradient(90deg,#1c1d24,#25262e); animation: wa 2.5s infinite ease-in-out; }
-        .wa-row:nth-child(2){ height: 14px; width: 70%; animation-delay: .08s; }
-        @keyframes wa { 0%,100%{ opacity:.85 } 50%{ opacity:.45 } }
-        .footer { margin-top: 50px; color: var(--muted); font-size: 12px; text-align: center; }
-        .footer a { color: var(--text); text-decoration: none; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Nomade. Social Run Club.</title>
+  <meta name="description" content="Nomade. Social Run Club. Una comunidad de runners en La Manga. Corre, conecta y vuelve." />
+  <meta property="og:title" content="Nomade. Social Run Club." />
+  <meta property="og:description" content="Una comunidad de runners en La Manga. Próximo evento: Carrera en La Manga." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=1600&q=80" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,300..1000;1,9..40,300..1000&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23b85f32'/><text x='50' y='66' text-anchor='middle' font-size='50' fill='white'>N</text></svg>" />
+  <style>
+    :root {
+      --sand: #e9d3b2;
+      --sun: #d98a3d;
+      --clay: #b85f32;
+      --terra: #7d3822;
+      --soil: #21150f;
+      --ink: #110d09;
+      --cream: #fff4df;
+      --muted: rgba(255, 244, 223, .72);
+      --line: rgba(255, 244, 223, .18);
+      --glass: rgba(17, 13, 9, .58);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--ink);
+      color: var(--cream);
+      font-family: "DM Sans", system-ui, -apple-system, Segoe UI, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .09;
+      z-index: 50;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+    }
+
+    .nav {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(calc(100% - 28px), var(--max));
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px 10px 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      background: rgba(18, 12, 8, .62);
+      backdrop-filter: blur(18px) saturate(150%);
+      box-shadow: 0 20px 60px rgba(0,0,0,.28);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+    .mark {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sun), var(--clay));
+      color: #fff;
+      font-weight: 1000;
+    }
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      color: rgba(255,255,255,.76);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .nav-links a { padding: 9px 12px; border-radius: 999px; }
+    .nav-links a:hover { background: rgba(255,255,255,.1); color: #fff; }
+    .nav-cta {
+      background: var(--cream);
+      color: var(--ink) !important;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: #000;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.28) 0%, rgba(0,0,0,.08) 35%, rgba(17,13,9,.98) 100%),
+        linear-gradient(90deg, rgba(17,13,9,.96) 0%, rgba(17,13,9,.44) 44%, rgba(17,13,9,.08) 100%),
+        url("https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=2200&q=82") center/cover;
+      transform: scale(1.035);
+      animation: slowZoom 18s ease-in-out infinite alternate;
+    }
+    @keyframes slowZoom { from { transform: scale(1.02); } to { transform: scale(1.09); } }
+    .hero-inner {
+      position: relative;
+      width: min(calc(100% - 36px), var(--max));
+      margin: 0 auto;
+      padding: 120px 0 42px;
+      display: grid;
+      gap: 22px;
+    }
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 244, 223, .08);
+      color: rgba(255,255,255,.82);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #ffb86b; box-shadow: 0 0 24px #ffb86b; }
+    h1 {
+      margin: 0;
+      max-width: 960px;
+      font-family: Anton, Impact, sans-serif;
+      font-size: clamp(70px, 16vw, 192px);
+      line-height: .82;
+      font-weight: 400;
+      letter-spacing: -.055em;
+      text-transform: uppercase;
+    }
+    .hero-copy {
+      max-width: 650px;
+      color: rgba(255,244,223,.82);
+      font-size: clamp(18px, 2.4vw, 25px);
+      line-height: 1.28;
+      letter-spacing: -.02em;
+      font-weight: 520;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: -.01em;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary { background: var(--cream); color: var(--ink); }
+    .btn.secondary { border: 1px solid var(--line); color: var(--cream); background: rgba(255,255,255,.08); backdrop-filter: blur(12px); }
+    .scroll-note {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,.62);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-top: 12px;
+    }
+    .scroll-line { height: 1px; width: 70px; background: rgba(255,255,255,.3); }
+
+    .section { position: relative; padding: 92px 0; }
+    .container { width: min(calc(100% - 36px), var(--max)); margin: 0 auto; }
+    .section-kicker {
+      color: var(--sun);
+      font-size: 12px;
+      font-weight: 1000;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      margin: 0;
+      font-family: Anton, Impact, sans-serif;
+      font-size: clamp(44px, 8vw, 104px);
+      line-height: .88;
+      letter-spacing: -.045em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+    .section-text {
+      max-width: 670px;
+      color: rgba(255,244,223,.72);
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.55;
+      margin: 22px 0 0;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .image-card {
+      position: relative;
+      min-height: 560px;
+      border-radius: 34px;
+      overflow: hidden;
+      background: #1c120d;
+      box-shadow: 0 35px 90px rgba(0,0,0,.32);
+    }
+    .image-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.68)), var(--img) center/cover;
+      transition: transform .6s ease;
+    }
+    .image-card:hover::before { transform: scale(1.04); }
+    .image-card .label {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-end;
+      padding-top: 160px;
+      color: white;
+    }
+    .label strong { font-size: 24px; letter-spacing: -.03em; }
+    .label span { font-size: 12px; text-transform: uppercase; letter-spacing: .16em; color: rgba(255,255,255,.7); font-weight: 900; }
+
+    .quote-panel {
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 34px;
+      border-radius: 34px;
+      border: 1px solid rgba(255,244,223,.16);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(217,138,61,.22), transparent 35%),
+        linear-gradient(145deg, rgba(255,244,223,.08), rgba(255,244,223,.03));
+    }
+    .big-quote {
+      font-family: Anton, Impact, sans-serif;
+      font-size: clamp(48px, 7vw, 96px);
+      line-height: .88;
+      text-transform: uppercase;
+      letter-spacing: -.045em;
+      margin: 0;
+    }
+    .mini-copy { color: rgba(255,244,223,.72); line-height: 1.55; font-size: 17px; max-width: 470px; }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 32px;
+    }
+    .feature {
+      min-height: 230px;
+      border-radius: 26px;
+      padding: 24px;
+      background: rgba(255,244,223,.07);
+      border: 1px solid rgba(255,244,223,.12);
+    }
+    .feature .num { font-family: Anton, Impact, sans-serif; font-size: 60px; line-height: .8; color: rgba(217,138,61,.92); }
+    .feature h3 { margin: 24px 0 8px; font-size: 22px; letter-spacing: -.03em; }
+    .feature p { margin: 0; color: rgba(255,244,223,.65); line-height: 1.45; }
+
+    .event {
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+      border-radius: 36px;
+      background: var(--cream);
+      color: var(--soil);
+      min-height: 620px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      box-shadow: 0 40px 100px rgba(0,0,0,.35);
+    }
+    .event-copy { padding: clamp(28px, 6vw, 62px); display: flex; flex-direction: column; justify-content: space-between; }
+    .event h2 {
+      font-family: Anton, Impact, sans-serif;
+      font-size: clamp(58px, 9vw, 122px);
+      line-height: .86;
+      letter-spacing: -.05em;
+      text-transform: uppercase;
+      margin: 10px 0 0;
+      font-weight: 400;
+    }
+    .event-meta { margin-top: 20px; color: rgba(33,21,15,.68); font-size: 18px; line-height: 1.45; max-width: 430px; }
+    .load-box { margin-top: 34px; }
+    .load-row { display: flex; justify-content: space-between; align-items: center; font-weight: 1000; text-transform: uppercase; letter-spacing: .08em; font-size: 12px; }
+    .bar { height: 12px; background: rgba(33,21,15,.12); border-radius: 999px; margin-top: 12px; overflow: hidden; }
+    .bar span { display: block; height: 100%; width: 68%; border-radius: 999px; background: linear-gradient(90deg, var(--terra), var(--sun)); position: relative; }
+    .bar span::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent); animation: shimmer 2.5s infinite; }
+    @keyframes shimmer { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+    .event-photo { min-height: 100%; background: linear-gradient(180deg, transparent, rgba(0,0,0,.28)), url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1500&q=82") center/cover; }
+
+    .wa-block {
+      display: grid;
+      grid-template-columns: .86fr 1.14fr;
+      gap: 22px;
+      align-items: center;
+      margin-top: 30px;
+    }
+    .phone {
+      width: min(340px, 100%);
+      margin: 0 auto;
+      border: 12px solid #080604;
+      border-radius: 42px;
+      background: #f5efe4;
+      color: #111;
+      box-shadow: 0 30px 80px rgba(0,0,0,.35);
+      overflow: hidden;
+    }
+    .phone-top { padding: 16px; background: #1f7a4f; color: white; font-weight: 900; display: flex; align-items: center; gap: 10px; }
+    .avatar { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--sun), var(--terra)); }
+    .messages { padding: 18px; display: grid; gap: 10px; min-height: 360px; background: #ede3d4; }
+    .msg { width: fit-content; max-width: 86%; padding: 10px 12px; border-radius: 16px; background: white; font-size: 13px; line-height: 1.35; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    .msg.me { margin-left: auto; background: #d8f7c2; }
+    .mock-label { color: rgba(255,244,223,.58); font-size: 12px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; margin-top: 12px; }
+
+    .final {
+      min-height: 82svh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background:
+        linear-gradient(180deg, rgba(17,13,9,.1), var(--ink) 92%),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2200&q=82") center/cover;
+    }
+    .final h2 {
+      margin: 0 auto;
+      max-width: 980px;
+      font-family: Anton, Impact, sans-serif;
+      font-size: clamp(64px, 13vw, 170px);
+      line-height: .83;
+      letter-spacing: -.055em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+    .final p { color: rgba(255,244,223,.76); font-size: 19px; max-width: 560px; margin: 24px auto 0; line-height: 1.45; }
+
+    footer { padding: 28px 0 42px; border-top: 1px solid rgba(255,244,223,.12); color: rgba(255,244,223,.56); }
+    .footer-row { width: min(calc(100% - 36px), var(--max)); margin: 0 auto; display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; font-size: 13px; }
+
+    @media (max-width: 860px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero-inner { padding-bottom: 34px; }
+      .split, .event, .wa-block { grid-template-columns: 1fr; }
+      .image-card, .quote-panel { min-height: 430px; border-radius: 28px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .event { min-height: auto; border-radius: 28px; }
+      .event-photo { min-height: 390px; order: -1; }
+      .section { padding: 72px 0; }
+      .btn { width: 100%; }
+      .scroll-note { display: none; }
+      .phone { max-width: 310px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="wrap">
-        <div class="hero">
-            <div class="kicker">Running community · La Manga</div>
-            <h1>Nomade.<br/>Social Run Club.</h1>
-            <p class="sub">Comunidad de runners. Salidas, carrera y gente que se mueve junta.</p>
-        </div>
+  <div class="noise"></div>
 
-        <div class="section">
-            <div class="section-title">Qué es</div>
-            <div class="card">
-                Un grupo de gente que sale a correr en buena compañía. Sin presión, sin ritmos impuestos. Solo entrenar, charlar y repetir.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Por qué unirse</div>
-            <div class="card">
-                <div class="benefit">
-                    <div class="benefit-icon">📍</div>
-                    <div>
-                        <div style="font-weight:600">Rutas por La Manga</div>
-                        <div style="color:var(--muted);font-size:13px;margin-top:2px">Planas, playa y paseos variados.</div>
-                    </div>
-                </div>
-                <div class="benefit">
-                    <div class="benefit-icon">🗓️</div>
-                    <div>
-                        <div style="font-weight:600">Quedadas semanales</div>
-                        <div style="color:var(--muted);font-size:13px;margin-top:2px">Diferentes niveles, mismo ambiente.</div>
-                    </div>
-                </div>
-                <div class="benefit">
-                    <div class="benefit-icon">👥</div>
-                    <div>
-                        <div style="font-weight:600">Gente sin drama</div>
-                        <div style="color:var(--muted);font-size:13px;margin-top:2px">Correr es solo la excusa.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Próximo evento</div>
-            <div class="card">
-                <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
-                    <div>
-                        <div style="font-weight:700;font-size:18px">Carrera en La Manga</div>
-                        <div class="event-meta">Próximamente · distancia y hora por confirmar</div>
-                    </div>
-                    <div style="color:var(--accent);font-weight:700">Loading 62%</div>
-                </div>
-                <div class="progress"><span></span></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Grupo de WhatsApp</div>
-            <div class="card">
-                <div>Únete para coordinar salidas y recibir novedades.</div>
-                <div class="whatsapp-mock">
-                    <div class="wa-row"></div>
-                    <div class="wa-row"></div>
-                </div>
-            </div>
-        </div>
-
-        <a class="cta" href="https://instagram.com/socialclub.nomade" target="_blank" rel="noopener">Seguir en Instagram →</a>
-
-        <div class="section" style="margin-top:26px">
-            <a class="cta secondary" href="https://instagram.com/socialclub.nomade" target="_blank" rel="noopener">Contactar por DM</a>
-        </div>
-
-        <div class="footer">
-            @socialclub.nomade · Nomade. Social Run Club.
-        </div>
+  <nav class="nav">
+    <a class="brand" href="#top" aria-label="Nomade home"><span class="mark">N</span><span>Nomade. SRC</span></a>
+    <div class="nav-links">
+      <a href="#club">Club</a>
+      <a href="#event">Evento</a>
+      <a href="#whatsapp">Grupo</a>
+      <a class="nav-cta" href="https://instagram.com/socialclub.nomade" target="_blank" rel="noopener">Instagram</a>
     </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="eyebrow"><span class="dot"></span> La Manga · Social Run Club</div>
+        <h1>Run<br>with<br>Nomade.</h1>
+        <div class="hero-copy">Una comunidad para correr sin postureo. Atardeceres, playa, conversación y kilómetros compartidos.</div>
+        <div class="hero-actions">
+          <a class="btn primary" href="#event">Próximo evento</a>
+          <a class="btn secondary" href="#whatsapp">Unirme al grupo</a>
+        </div>
+        <div class="scroll-note"><span class="scroll-line"></span> baja para entrar al club</div>
+      </div>
+    </section>
+
+    <section id="club" class="section">
+      <div class="container split">
+        <div class="image-card" style="--img:url('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1400&q=82')">
+          <div class="label"><strong>Run social.</strong><span>No race pressure</span></div>
+        </div>
+        <div class="quote-panel">
+          <div>
+            <div class="section-kicker">Qué es</div>
+            <p class="big-quote">Correr es la excusa. La comunidad es el plan.</p>
+          </div>
+          <p class="mini-copy">Nomade. Social Run Club. es para quienes quieren moverse con gente, descubrir rutas, salir de casa y convertir el running en un ritual social. Ritmos variados. Energía buena. Cero elitismo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 18px;">
+      <div class="container">
+        <div class="section-kicker">El vibe</div>
+        <h2 class="section-title">Ocre, mar, asfalto y sobremesa.</h2>
+        <p class="section-text">Una quedada no tiene que sentirse como entrenamiento militar. Puede sentirse como un plan de sábado: correr, respirar, hablar, llegar al final con más energía de la que traías.</p>
+        <div class="feature-grid">
+          <div class="feature"><div class="num">01</div><h3>Rutas reales</h3><p>La Manga, playa, paseos largos y atardeceres. Un mapa vivo para salir a moverse.</p></div>
+          <div class="feature"><div class="num">02</div><h3>Todos los ritmos</h3><p>Principiantes, gente que vuelve, gente que corre fuerte. La idea es venir, no competir.</p></div>
+          <div class="feature"><div class="num">03</div><h3>Plan social</h3><p>Después de correr también hay club: café, charla, comunidad y próximos retos.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="event" class="section">
+      <div class="container">
+        <div class="event">
+          <div class="event-copy">
+            <div>
+              <div class="section-kicker" style="color: var(--terra)">Próximo evento</div>
+              <h2>Carrera en La Manga</h2>
+              <p class="event-meta">El primer evento grande del club está en construcción. Ruta, hora y punto de encuentro se anunciarán pronto desde Instagram.</p>
+              <div class="load-box">
+                <div class="load-row"><span>Loading</span><span>68%</span></div>
+                <div class="bar"><span></span></div>
+              </div>
+            </div>
+            <div class="hero-actions" style="margin-top: 38px;">
+              <a class="btn primary" style="background: var(--soil); color: var(--cream);" href="https://instagram.com/socialclub.nomade" target="_blank" rel="noopener">Ver updates</a>
+              <a class="btn secondary" style="border-color: rgba(33,21,15,.18); color: var(--soil); background: rgba(33,21,15,.06);" href="#whatsapp">Avisarme por WhatsApp</a>
+            </div>
+          </div>
+          <div class="event-photo" aria-label="Corredores entrenando"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="whatsapp" class="section">
+      <div class="container wa-block">
+        <div class="phone" aria-label="Mockup grupo WhatsApp">
+          <div class="phone-top"><span class="avatar"></span><span>Nomade. Run Club.</span></div>
+          <div class="messages">
+            <div class="msg">¿Quién se apunta al sunset run del jueves?</div>
+            <div class="msg me">Yo voy. Ritmo chill pls 🏃‍♀️</div>
+            <div class="msg">Punto de salida: paseo marítimo. 19:45.</div>
+            <div class="msg me">Después café o cerveza sin alcohol?</div>
+            <div class="msg">Ambas. Esto es Nomade.</div>
+          </div>
+        </div>
+        <div>
+          <div class="section-kicker">Grupo privado</div>
+          <h2 class="section-title">De Instagram a la calle.</h2>
+          <p class="section-text">El funnel es simple: ves la cuenta, entras al grupo, te apuntas a la próxima salida y apareces. Sin newsletter, sin venta rara, sin fricción.</p>
+          <div class="mock-label">WhatsApp mock · enlace pendiente</div>
+          <div class="hero-actions" style="margin-top: 20px;">
+            <a class="btn primary" href="https://instagram.com/socialclub.nomade" target="_blank" rel="noopener">Pedir acceso por DM</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="container">
+        <div class="eyebrow" style="margin: 0 auto 20px;"><span class="dot"></span> Come as you are</div>
+        <h2>Corre con gente. Vuelve con ganas.</h2>
+        <p>Nomade. Social Run Club. Comunidad de runners en La Manga. Próximamente más rutas, más quedadas y más movimiento.</p>
+        <div class="hero-actions" style="justify-content:center;margin-top:28px;">
+          <a class="btn primary" href="https://instagram.com/socialclub.nomade" target="_blank" rel="noopener">@socialclub.nomade</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-row">
+      <strong>Nomade. Social Run Club.</strong>
+      <span>La Manga · Running community · 2026</span>
+      <a href="https://instagram.com/socialclub.nomade" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </footer>
 </body>
 </html>
