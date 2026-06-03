@@ -11,7 +11,7 @@
   <meta property="og:image" content="https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=1600&q=80" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,300..1000;1,9..40,300..1000&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..1000;1,9..40,300..1000&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23b85f32'/><text x='50' y='66' text-anchor='middle' font-size='50' fill='white'>N</text></svg>" />
   <style>
     :root {
@@ -115,7 +115,7 @@
       background:
         linear-gradient(180deg, rgba(0,0,0,.28) 0%, rgba(0,0,0,.08) 35%, rgba(17,13,9,.98) 100%),
         linear-gradient(90deg, rgba(17,13,9,.96) 0%, rgba(17,13,9,.44) 44%, rgba(17,13,9,.08) 100%),
-        url("https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=2200&q=82") center/cover;
+        url("assets/ig-sunset.jpg") center/cover;
       transform: scale(1.035);
       animation: slowZoom 18s ease-in-out infinite alternate;
     }
@@ -147,11 +147,11 @@
     h1 {
       margin: 0;
       max-width: 960px;
-      font-family: Anton, Impact, sans-serif;
-      font-size: clamp(70px, 16vw, 192px);
-      line-height: .82;
-      font-weight: 400;
-      letter-spacing: -.055em;
+      font-family: "Space Grotesk", "DM Sans", system-ui, sans-serif;
+      font-size: clamp(58px, 13vw, 152px);
+      line-height: .88;
+      font-weight: 800;
+      letter-spacing: -.035em;
       text-transform: uppercase;
     }
     .hero-copy {
@@ -203,10 +203,10 @@
     }
     .section-title {
       margin: 0;
-      font-family: Anton, Impact, sans-serif;
-      font-size: clamp(44px, 8vw, 104px);
+      font-family: "Space Grotesk", "DM Sans", system-ui, sans-serif;
+      font-size: clamp(38px, 6.5vw, 82px);
       line-height: .88;
-      letter-spacing: -.045em;
+      letter-spacing: -.035em;
       text-transform: uppercase;
       font-weight: 400;
     }
@@ -269,11 +269,11 @@
         linear-gradient(145deg, rgba(255,244,223,.08), rgba(255,244,223,.03));
     }
     .big-quote {
-      font-family: Anton, Impact, sans-serif;
+      font-family: "Space Grotesk", "DM Sans", system-ui, sans-serif;
       font-size: clamp(48px, 7vw, 96px);
       line-height: .88;
       text-transform: uppercase;
-      letter-spacing: -.045em;
+      letter-spacing: -.035em;
       margin: 0;
     }
     .mini-copy { color: rgba(255,244,223,.72); line-height: 1.55; font-size: 17px; max-width: 470px; }
@@ -291,7 +291,7 @@
       background: rgba(255,244,223,.07);
       border: 1px solid rgba(255,244,223,.12);
     }
-    .feature .num { font-family: Anton, Impact, sans-serif; font-size: 60px; line-height: .8; color: rgba(217,138,61,.92); }
+    .feature .num { font-family: "Space Grotesk", "DM Sans", system-ui, sans-serif; font-size: 60px; line-height: .8; color: rgba(217,138,61,.92); }
     .feature h3 { margin: 24px 0 8px; font-size: 22px; letter-spacing: -.03em; }
     .feature p { margin: 0; color: rgba(255,244,223,.65); line-height: 1.45; }
 
@@ -309,10 +309,10 @@
     }
     .event-copy { padding: clamp(28px, 6vw, 62px); display: flex; flex-direction: column; justify-content: space-between; }
     .event h2 {
-      font-family: Anton, Impact, sans-serif;
-      font-size: clamp(58px, 9vw, 122px);
-      line-height: .86;
-      letter-spacing: -.05em;
+      font-family: "Space Grotesk", "DM Sans", system-ui, sans-serif;
+      font-size: clamp(48px, 8vw, 102px);
+      line-height: .92;
+      letter-spacing: -.035em;
       text-transform: uppercase;
       margin: 10px 0 0;
       font-weight: 400;
@@ -324,7 +324,7 @@
     .bar span { display: block; height: 100%; width: 68%; border-radius: 999px; background: linear-gradient(90deg, var(--terra), var(--sun)); position: relative; }
     .bar span::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent); animation: shimmer 2.5s infinite; }
     @keyframes shimmer { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
-    .event-photo { min-height: 100%; background: linear-gradient(180deg, transparent, rgba(0,0,0,.28)), url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1500&q=82") center/cover; }
+    .event-photo { min-height: 100%; background: linear-gradient(180deg, transparent, rgba(0,0,0,.28)), url("assets/ig-pilometry.jpg") center/cover; }
 
     .wa-block {
       display: grid;
@@ -357,15 +357,15 @@
       text-align: center;
       background:
         linear-gradient(180deg, rgba(17,13,9,.1), var(--ink) 92%),
-        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2200&q=82") center/cover;
+        url("assets/ig-community.jpg") center/cover;
     }
     .final h2 {
       margin: 0 auto;
       max-width: 980px;
-      font-family: Anton, Impact, sans-serif;
-      font-size: clamp(64px, 13vw, 170px);
-      line-height: .83;
-      letter-spacing: -.055em;
+      font-family: "Space Grotesk", "DM Sans", system-ui, sans-serif;
+      font-size: clamp(50px, 10vw, 128px);
+      line-height: .9;
+      letter-spacing: -.035em;
       text-transform: uppercase;
       font-weight: 400;
     }
@@ -405,9 +405,9 @@
   <main id="top">
     <section class="hero">
       <div class="hero-inner">
-        <div class="eyebrow"><span class="dot"></span> La Manga · Social Run Club</div>
-        <h1>Run<br>with<br>Nomade.</h1>
-        <div class="hero-copy">Una comunidad para correr sin postureo. Atardeceres, playa, conversación y kilómetros compartidos.</div>
+        <div class="eyebrow"><span class="dot"></span> Move the coast</div>
+        <h1>Move<br>the<br>coast.</h1>
+        <div class="hero-copy">Nomade. Social Run Club. Una invitación a correr, comer bien y moverte con gente real.</div>
         <div class="hero-actions">
           <a class="btn primary" href="#event">Próximo evento</a>
           <a class="btn secondary" href="#whatsapp">Unirme al grupo</a>
@@ -418,28 +418,43 @@
 
     <section id="club" class="section">
       <div class="container split">
-        <div class="image-card" style="--img:url('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1400&q=82')">
+        <div class="image-card" style="--img:url('assets/ig-connect.jpg')">
           <div class="label"><strong>Run social.</strong><span>No race pressure</span></div>
         </div>
         <div class="quote-panel">
           <div>
             <div class="section-kicker">Qué es</div>
-            <p class="big-quote">Correr es la excusa. La comunidad es el plan.</p>
+            <p class="big-quote">Corre simple. Come real. Vuelve mejor.</p>
           </div>
-          <p class="mini-copy">Nomade. Social Run Club. es para quienes quieren moverse con gente, descubrir rutas, salir de casa y convertir el running en un ritual social. Ritmos variados. Energía buena. Cero elitismo.</p>
+          <p class="mini-copy">Nomade. Social Run Club. es para quienes quieren moverse con gente, descubrir rutas y convertir el running en un ritual cercano. Entrenos simples, comida real, energía buena. Cero elitismo.</p>
         </div>
       </div>
     </section>
 
     <section class="section" style="padding-top: 18px;">
       <div class="container">
-        <div class="section-kicker">El vibe</div>
-        <h2 class="section-title">Ocre, mar, asfalto y sobremesa.</h2>
-        <p class="section-text">Una quedada no tiene que sentirse como entrenamiento militar. Puede sentirse como un plan de sábado: correr, respirar, hablar, llegar al final con más energía de la que traías.</p>
+        <div class="section-kicker">Filosofía</div>
+        <h2 class="section-title">Entrenos simples. Comida real.</h2>
+        <p class="section-text">Correr para sentirte mejor, no para demostrar nada. Salidas accesibles, hábitos sostenibles y planes alrededor de comida real: fruta, café, tostadas, aguacate, conversación.</p>
         <div class="feature-grid">
-          <div class="feature"><div class="num">01</div><h3>Rutas reales</h3><p>La Manga, playa, paseos largos y atardeceres. Un mapa vivo para salir a moverse.</p></div>
-          <div class="feature"><div class="num">02</div><h3>Todos los ritmos</h3><p>Principiantes, gente que vuelve, gente que corre fuerte. La idea es venir, no competir.</p></div>
-          <div class="feature"><div class="num">03</div><h3>Plan social</h3><p>Después de correr también hay club: café, charla, comunidad y próximos retos.</p></div>
+          <div class="feature"><div class="num">01</div><h3>Movimiento real</h3><p>Costa, ciudad, playa o paseo. La ruta importa menos que aparecer y moverte.</p></div>
+          <div class="feature"><div class="num">02</div><h3>Entrenos simples</h3><p>Ritmos humanos, sesiones claras y cero complicación. El objetivo es repetir.</p></div>
+          <div class="feature"><div class="num">03</div><h3>Comida real</h3><p>Después del run también hay club: café, tostadas, fruta, aguacate y comunidad.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container split">
+        <div class="quote-panel">
+          <div>
+            <div class="section-kicker">Post-run ritual</div>
+            <p class="big-quote">Entrenos simples, comida real.</p>
+          </div>
+          <p class="mini-copy">No va de sufrir más. Va de construir una rutina que puedas sostener: moverte, comer mejor, compartirlo y volver la semana siguiente.</p>
+        </div>
+        <div class="image-card" style="--img:url('https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=1400&q=82')">
+          <div class="label"><strong>Real food.</strong><span>Avocado, coffee, coast</span></div>
         </div>
       </div>
     </section>
@@ -481,8 +496,8 @@
         </div>
         <div>
           <div class="section-kicker">Grupo privado</div>
-          <h2 class="section-title">De Instagram a la calle.</h2>
-          <p class="section-text">El funnel es simple: ves la cuenta, entras al grupo, te apuntas a la próxima salida y apareces. Sin newsletter, sin venta rara, sin fricción.</p>
+          <h2 class="section-title">Del DM al primer run.</h2>
+          <p class="section-text">Simple: ves la cuenta, pides acceso, entras al grupo y te apuntas a la próxima salida. Sin venta rara, sin presión, sin fricción.</p>
           <div class="mock-label">WhatsApp mock · enlace pendiente</div>
           <div class="hero-actions" style="margin-top: 20px;">
             <a class="btn primary" href="https://instagram.com/socialclub.nomade" target="_blank" rel="noopener">Pedir acceso por DM</a>
@@ -494,8 +509,8 @@
     <section class="final">
       <div class="container">
         <div class="eyebrow" style="margin: 0 auto 20px;"><span class="dot"></span> Come as you are</div>
-        <h2>Corre con gente. Vuelve con ganas.</h2>
-        <p>Nomade. Social Run Club. Comunidad de runners en La Manga. Próximamente más rutas, más quedadas y más movimiento.</p>
+        <h2>Transforma tu cuerpo y mente.</h2>
+        <p>Move the coast. Una comunidad para correr, cuidarte y compartir mejores hábitos con gente que también está empezando o volviendo.</p>
         <div class="hero-actions" style="justify-content:center;margin-top:28px;">
           <a class="btn primary" href="https://instagram.com/socialclub.nomade" target="_blank" rel="noopener">@socialclub.nomade</a>
         </div>
